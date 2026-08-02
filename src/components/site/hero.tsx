@@ -115,14 +115,10 @@ export function Hero() {
 
         <h1 className="max-w-6xl font-display text-[clamp(2.6rem,10.5vw,9.5rem)] leading-[0.86] font-medium tracking-[-0.05em]">
           <SplitWords text="CYBER SECURITY" delay={2.7} stagger={0.08} />
-          <span className="block text-glow">
-            <SplitWords
-              text="SOCIETY"
-              delay={2.9}
-              stagger={0.08}
-              wordClassName="bg-[linear-gradient(100deg,var(--primary),var(--accent),var(--violet))] bg-clip-text text-transparent"
-            />
+          <span className="block text-glow text-accent">
+            <SplitWords text="SOCIETY" delay={2.9} stagger={0.08} />
           </span>
+
 
         </h1>
 
