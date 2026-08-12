@@ -59,7 +59,7 @@ export function SplitWords({
         <span key={`${word}-${i}`} className="inline-block overflow-hidden py-[0.08em]">
           <motion.span
             className={cn("inline-block will-change-transform", wordClassName)}
-            initial={reduced ? false : { y: "110%", opacity: 0, filter: "blur(8px)" }}
+            initial={reduced ? false : { y: "40%", opacity: 0.001, filter: "blur(6px)" }}
             whileInView={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 1.1, delay: delay + i * stagger, ease: EASE }}
