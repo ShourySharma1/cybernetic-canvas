@@ -53,7 +53,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
-  useEffect(() => { console.log("HERO_EFFECT"); setMounted(true); }, []);
+  useEffect(() => setMounted(true), []);
 
   return (
     <div id="top" ref={ref} className="relative min-h-[100svh] w-full overflow-hidden">

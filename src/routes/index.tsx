@@ -1,5 +1,11 @@
-import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Cursor, MouseGlow, ScrollProgress, SmoothScroll } from "@/components/site/atmosphere";
+import { Nav } from "@/components/site/nav";
+import { Hero } from "@/components/site/hero";
+import { CinematicGallery } from "@/components/site/gallery";
+import { About, Conference, Timeline } from "@/components/site/sections-core";
+import { Highlights, Speakers, Workshops } from "@/components/site/sections-showcase";
+import { Faq, Footer, Join, Sponsors, Testimonials } from "@/components/site/sections-closing";
 
 const title = "Cyber Security Society — Sentinel Summit 2027";
 const description =
@@ -20,16 +26,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  console.log("INDEX_RENDER");
   return (
     <>
-      <TestProbe />
-      {/*<SmoothScroll />*/}
-      {/*<ScrollProgress />*/}
-      {/*<Cursor />*/}
-      {/*<MouseGlow />*/}
-      {/*<Nav />*/}
-      <main className="relative z-10">{false && (<>
+      <SmoothScroll />
+      <ScrollProgress />
+      <Cursor />
+      <MouseGlow />
+      <Nav />
+      <main className="relative z-10">
         <Hero />
         <CinematicGallery />
         <About />
@@ -42,14 +46,8 @@ function Index() {
         <Testimonials />
         <Join />
         <Faq />
-      </>)}</main>
-      {/*<Footer />*/}
+      </main>
+      <Footer />
     </>
   );
-}
-
-function TestProbe() {
-  const [n, setN] = useState(0);
-  useEffect(() => { console.log("PROBE_EFFECT"); setN(1); }, []);
-  return <div data-probe={n} style={{position:"fixed",zIndex:999}}>probe {n}</div>;
 }
