@@ -101,7 +101,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.6, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.19, 1, 0.22, 1] }}
           className="glass mb-10 flex items-center gap-3 rounded-full px-4 py-2"
         >
           <span className="relative flex h-1.5 w-1.5">
@@ -114,9 +114,9 @@ export function Hero() {
         </motion.div>
 
         <h1 className="max-w-6xl font-display text-[clamp(2.6rem,10.5vw,9.5rem)] leading-[0.86] font-medium tracking-[-0.05em]">
-          <SplitWords text="CYBER SECURITY" delay={2.7} stagger={0.08} />
+          <SplitWords text="CYBER SECURITY" delay={0.25} stagger={0.08} />
           <span className="block text-glow text-accent">
-            <SplitWords text="SOCIETY" delay={2.9} stagger={0.08} />
+            <SplitWords text="SOCIETY" delay={0.45} stagger={0.08} />
           </span>
 
 
@@ -125,7 +125,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, delay: 3.25, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: 1.2, delay: 0.75, ease: [0.19, 1, 0.22, 1] }}
           className="mt-8 max-w-xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg"
         >
           Securing tomorrow. Empowering innovators. A collective of researchers,
@@ -135,7 +135,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 3.45, ease: [0.19, 1, 0.22, 1] }}
+          transition={{ duration: 1, delay: 0.9, ease: [0.19, 1, 0.22, 1] }}
           className="mt-11 flex flex-col items-center gap-3 sm:flex-row"
         >
           <MagneticLink href="#join">

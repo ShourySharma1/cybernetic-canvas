@@ -51,23 +51,18 @@ export function SplitWords({
   stagger?: number;
 }) {
   const reduced = useReducedMotion();
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
   const words = text.split(" ");
-  const show = reduced || inView;
+
   return (
-    <span ref={ref} className={cn("inline-block", className)}>
+    <span className={cn("inline-block", className)}>
       {words.map((word, i) => (
         <span key={`${word}-${i}`} className="inline-block overflow-hidden py-[0.08em]">
           <motion.span
             className={cn("inline-block will-change-transform", wordClassName)}
-            initial={false}
-            animate={
-              show
-                ? { y: "0%", opacity: 1, filter: "blur(0px)" }
-                : { y: "110%", opacity: 0, filter: "blur(8px)" }
-            }
-            transition={{ duration: 1.1, delay: show ? delay + i * stagger : 0, ease: EASE }}
+            initial={reduced ? false : { y: "40%", opacity: 0.001, filter: "blur(6px)" }}
+            whileInView={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 1.1, delay: delay + i * stagger, ease: EASE }}
           >
             {word}
             {i < words.length - 1 ? "\u00A0" : ""}
@@ -76,6 +71,7 @@ export function SplitWords({
       ))}
     </span>
   );
+
 }
 
 
@@ -109,7 +105,7 @@ export function MagneticLink({
       "bg-primary text-primary-foreground shadow-[var(--glow-primary)] hover:brightness-110",
     accent: "bg-accent text-accent-foreground shadow-[var(--glow-accent)] hover:brightness-110",
     ghost:
-      "text-foreground border border-border bg-[color-mix(in_oklab,var(--surface)_60%,transparent)] backdrop-blur-xl hover:border-primary/50",
+      "text-foreground border border-border bg-[color-mix(in_oklab,oklch(1_0_0)_70%,transparent)] backdrop-blur-xl hover:border-primary/50",
   }[variant];
 
   return (
@@ -128,7 +124,7 @@ export function MagneticLink({
       {...(props as object)}
     >
       <span className="relative z-10 flex items-center gap-2.5">{children}</span>
-      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(110deg,transparent,color-mix(in_oklab,white_28%,transparent),transparent)] transition-transform duration-[1100ms] ease-[var(--ease-luxe)] group-hover:translate-x-full" />
+      <span className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(110deg,transparent,color-mix(in_oklab,var(--primary)_18%,transparent),transparent)] transition-transform duration-[1100ms] ease-[var(--ease-luxe)] group-hover:translate-x-full" />
     </motion.a>
   );
 }

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 /* ---------------- Lenis smooth scroll ---------------- */
 export function SmoothScroll() {
@@ -155,7 +154,7 @@ export function ParticleField({ className = "" }: { className?: string }) {
         const near = d < 160;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r + (near ? 0.8 : 0), 0, Math.PI * 2);
-        ctx.fillStyle = near ? "rgba(0,255,136,0.75)" : "rgba(0,212,255,0.42)";
+        ctx.fillStyle = near ? "rgba(13,148,110,0.55)" : "rgba(30,110,180,0.30)";
         ctx.fill();
       }
       for (let i = 0; i < pts.length; i++) {
@@ -168,7 +167,7 @@ export function ParticleField({ className = "" }: { className?: string }) {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(0,212,255,${0.13 * (1 - d / 130)})`;
+            ctx.strokeStyle = `rgba(30,110,180,${0.12 * (1 - d / 130)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -213,91 +212,5 @@ export function MouseGlow() {
           "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)",
       }}
     />
-  );
-}
-
-/* ---------------- Loading screen ---------------- */
-const BOOT = [
-  "> initializing secure kernel ......... ok",
-  "> mounting /dev/entropy ............. ok",
-  "> negotiating tls 1.3 handshake ..... ok",
-  "> verifying signature chain ......... ok",
-  "> access granted",
-];
-
-export function Preloader({ onDone }: { onDone: () => void }) {
-  const reduced = useReducedMotion();
-  const [progress, setProgress] = useState(0);
-  const [lines, setLines] = useState<string[]>([]);
-  const [open, setOpen] = useState(true);
-
-  useEffect(() => {
-    if (reduced) {
-      setOpen(false);
-      onDone();
-      return;
-    }
-    const started = performance.now();
-    let raf = 0;
-    const tick = (t: number) => {
-      const p = Math.min((t - started) / 2400, 1);
-      setProgress(Math.round(p * 100));
-      setLines(BOOT.slice(0, Math.ceil(p * BOOT.length)));
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else {
-        setTimeout(() => {
-          setOpen(false);
-          onDone();
-        }, 420);
-      }
-    };
-    raf = requestAnimationFrame(tick);
-    document.body.style.overflow = "hidden";
-    return () => {
-      cancelAnimationFrame(raf);
-      document.body.style.overflow = "";
-    };
-  }, [onDone, reduced]);
-
-  useEffect(() => {
-    if (!open) document.body.style.overflow = "";
-  }, [open]);
-
-  return (
-    <AnimatePresence>
-      {open ? (
-        <motion.div
-          key="preloader"
-          exit={{ opacity: 0, filter: "blur(14px)" }}
-          transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
-        >
-          <div className="absolute inset-0 cyber-grid opacity-40" />
-          <div className="relative w-[min(92vw,560px)] px-2">
-            <div className="mb-10 text-center">
-              <div className="font-display text-[clamp(1.4rem,4vw,2.2rem)] font-medium tracking-[-0.04em]">
-                <span className="text-primary">CSS</span>
-                <span className="text-muted-foreground"> // </span>
-                CYBER SECURITY SOCIETY
-              </div>
-            </div>
-            <pre className="min-h-[9rem] font-mono text-[11px] leading-6 text-accent/85 md:text-xs">
-              {lines.join("\n")}
-              <span className="animate-glowpulse">_</span>
-            </pre>
-            <div className="mt-8 h-px w-full bg-border">
-              <div
-                className="h-px bg-[linear-gradient(90deg,var(--primary),var(--accent))]"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="mt-3 flex justify-between font-mono text-[11px] text-muted-foreground">
-              <span>DECRYPTING SESSION</span>
-              <span className="text-primary">{progress}%</span>
-            </div>
-          </div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
   );
 }

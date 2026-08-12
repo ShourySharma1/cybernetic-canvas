@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Cursor, MouseGlow, Preloader, ScrollProgress, SmoothScroll } from "@/components/site/atmosphere";
+import { Cursor, MouseGlow, ScrollProgress, SmoothScroll } from "@/components/site/atmosphere";
 import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { CinematicGallery } from "@/components/site/gallery";
@@ -27,11 +26,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [, setReady] = useState(false);
-
   return (
     <>
-      <Preloader onDone={() => setReady(true)} />
       <SmoothScroll />
       <ScrollProgress />
       <Cursor />
