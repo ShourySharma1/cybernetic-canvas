@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Cursor, MouseGlow, ScrollProgress, SmoothScroll } from "@/components/site/atmosphere";
+import { MouseGlow, ScrollProgress, SmoothScroll } from "@/components/site/atmosphere";
 import { Nav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { CinematicGallery } from "@/components/site/gallery";
@@ -30,7 +30,6 @@ function Index() {
     <>
       <SmoothScroll />
       <ScrollProgress />
-      <Cursor />
       <MouseGlow />
       <Nav />
       <main className="relative z-10">
