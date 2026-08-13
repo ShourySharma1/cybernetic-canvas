@@ -50,56 +50,9 @@ export function ScrollProgress() {
   );
 }
 
-/* ---------------- Custom cursor ---------------- */
+/* ---------------- Custom cursor (disabled) ---------------- */
 export function Cursor() {
-  const dot = useRef<HTMLDivElement>(null);
-  const ring = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    setEnabled(true);
-    const target = { x: innerWidth / 2, y: innerHeight / 2 };
-    const cur = { ...target };
-    let raf = 0;
-
-    const move = (e: MouseEvent) => {
-      target.x = e.clientX;
-      target.y = e.clientY;
-      const el = (e.target as HTMLElement)?.closest?.(
-        "a,button,[data-cursor='hover'],input,textarea",
-      );
-      ring.current?.classList.toggle("scale-[2.1]", !!el);
-      ring.current?.classList.toggle("bg-primary/20", !!el);
-    };
-
-    const loop = () => {
-      cur.x += (target.x - cur.x) * 0.16;
-      cur.y += (target.y - cur.y) * 0.16;
-      if (dot.current)
-        dot.current.style.transform = `translate3d(${target.x - 3}px,${target.y - 3}px,0)`;
-      if (ring.current)
-        ring.current.style.transform = `translate3d(${cur.x - 18}px,${cur.y - 18}px,0)`;
-      raf = requestAnimationFrame(loop);
-    };
-    window.addEventListener("mousemove", move);
-    raf = requestAnimationFrame(loop);
-    return () => {
-      window.removeEventListener("mousemove", move);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  if (!enabled) return null;
-  return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-[80] hidden md:block">
-      <div
-        ref={ring}
-        className="absolute top-0 left-0 h-9 w-9 rounded-full border border-primary/60 transition-[transform,background-color,scale] duration-300 ease-out will-change-transform"
-      />
-      <div ref={dot} className="absolute top-0 left-0 h-1.5 w-1.5 rounded-full bg-accent" />
-    </div>
-  );
+  return null;
 }
 
 /* ---------------- Particle + grid canvas background ---------------- */
