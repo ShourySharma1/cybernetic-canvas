@@ -59,19 +59,19 @@ export function Hero() {
     <div id="top" ref={ref} className="relative min-h-[100svh] w-full overflow-hidden">
       {/* layered background */}
       <div aria-hidden className="absolute inset-0 mesh" />
-      <div aria-hidden className="absolute inset-0 cyber-grid opacity-70 [mask-image:radial-gradient(70%_60%_at_50%_40%,black,transparent)]" />
+      <div aria-hidden className="absolute inset-0 cyber-grid opacity-50 [mask-image:radial-gradient(70%_60%_at_50%_40%,black,transparent)]" />
       <div aria-hidden className="absolute inset-0 noise-overlay" />
       {mounted ? (
-        <div aria-hidden className="absolute inset-0 opacity-70">
+        <div aria-hidden className="absolute inset-0 opacity-50">
           <ParticleField />
         </div>
       ) : null}
       <div
         aria-hidden
-        className="absolute -top-40 left-1/2 h-[520px] w-[1100px] -translate-x-1/2 rounded-full opacity-40 blur-[140px]"
+        className="absolute -top-40 left-1/2 h-[520px] w-[1100px] -translate-x-1/2 rounded-full opacity-28 blur-[100px]"
         style={{
           background:
-            "conic-gradient(from 180deg, color-mix(in oklab,var(--primary) 40%,transparent), color-mix(in oklab,var(--violet) 40%,transparent), color-mix(in oklab,var(--accent) 30%,transparent), color-mix(in oklab,var(--primary) 40%,transparent))",
+            "conic-gradient(from 180deg, color-mix(in oklab,var(--primary) 28%,transparent), color-mix(in oklab,var(--violet) 28%,transparent), color-mix(in oklab,var(--accent) 21%,transparent), color-mix(in oklab,var(--primary) 28%,transparent))",
         }}
       />
 
