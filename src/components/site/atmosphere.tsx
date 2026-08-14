@@ -159,10 +159,10 @@ export function MouseGlow() {
     <div
       aria-hidden
       ref={ref}
-      className="pointer-events-none fixed top-0 left-0 z-0 hidden h-[640px] w-[640px] rounded-full opacity-42 blur-[85px] transition-transform duration-700 ease-out md:block"
+      className="pointer-events-none fixed top-0 left-0 z-0 hidden h-[640px] w-[640px] rounded-full opacity-[0.30] blur-[70px] transition-transform duration-700 ease-out md:block"
       style={{
         background:
-          "radial-gradient(circle, color-mix(in oklab, var(--primary) 13%, transparent), transparent 65%)",
+          "radial-gradient(circle, color-mix(in oklab, var(--primary) 10%, transparent), transparent 65%)",
       }}
     />
   );
