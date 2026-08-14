@@ -33,10 +33,10 @@ export function About() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute -inset-10 -z-10 rounded-full opacity-40 blur-[110px]"
+            className="absolute -inset-10 -z-10 rounded-full opacity-[0.20] blur-[60px]"
             style={{
               background:
-                "radial-gradient(circle, color-mix(in oklab,var(--violet) 30%,transparent), transparent 70%)",
+                "radial-gradient(circle, color-mix(in oklab,var(--violet) 15%,transparent), transparent 70%)",
             }}
           />
           <ul className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
@@ -99,7 +99,7 @@ function Countdown() {
   return (
     <div className="grid grid-cols-4 gap-px overflow-hidden rounded-sm border border-border bg-border">
       {cells.map(([label, v]) => (
-        <div key={label} className="bg-surface/70 px-2 py-5 text-center backdrop-blur-xl">
+        <div key={label} className="bg-surface/70 px-2 py-5 text-center backdrop-blur-lg">
           <p className="font-display text-[clamp(1.4rem,3.2vw,2.4rem)] leading-none font-medium tabular-nums text-foreground">
             {String(v).padStart(2, "0")}
           </p>
@@ -122,9 +122,9 @@ export function Conference() {
           loading="lazy"
           width={1600}
           height={1000}
-          className="h-full w-full object-cover opacity-45"
+          className="h-full w-full object-cover opacity-[0.25]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--background)_8%,color-mix(in_oklab,var(--background)_55%,transparent)_60%,var(--background))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--background)_8%,color-mix(in_oklab,var(--background)_80%,transparent)_60%,var(--background))]" />
         <div className="absolute inset-0 noise-overlay" />
       </div>
 
@@ -243,13 +243,13 @@ export function Timeline() {
               </span>
               <Reveal delay={i * 0.05}>
                 <article
-                  className={`group relative overflow-hidden rounded-3xl border border-border bg-card/70 p-7 backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-700 ease-[var(--ease-luxe)] hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[var(--shadow-elevate)] md:p-8 ${
+                  className={`group relative overflow-hidden rounded-3xl border border-border bg-card/50 p-7 backdrop-blur-lg transition-[transform,box-shadow,border-color] duration-700 ease-[var(--ease-luxe)] hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[var(--shadow-elevate)] md:p-8 ${
                     i % 2 ? "" : "md:text-right"
                   }`}
                 >
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 bg-[radial-gradient(120%_100%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]"
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 bg-[radial-gradient(120%_100%_at_50%_0%,color-mix(in_oklab,var(--primary)_7%,transparent),transparent_70%)]"
                   />
                   <div
                     className={`relative flex items-center gap-3 ${i % 2 ? "" : "md:justify-end"}`}

@@ -106,8 +106,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
         const d = Math.hypot(p.x - mouse.x, p.y - mouse.y);
         const near = d < 160;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r + (near ? 0.8 : 0), 0, Math.PI * 2);
-        ctx.fillStyle = near ? "rgba(13,148,110,0.55)" : "rgba(30,110,180,0.30)";
+        ctx.arc(p.x, p.y, p.r + (near ? 0.6 : 0), 0, Math.PI * 2);
+        ctx.fillStyle = near ? "rgba(13,148,110,0.38)" : "rgba(30,110,180,0.21)";
         ctx.fill();
       }
       for (let i = 0; i < pts.length; i++) {
@@ -120,8 +120,8 @@ export function ParticleField({ className = "" }: { className?: string }) {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(30,110,180,${0.12 * (1 - d / 130)})`;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = `rgba(30,110,180,${0.08 * (1 - d / 130)})`;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
@@ -159,10 +159,10 @@ export function MouseGlow() {
     <div
       aria-hidden
       ref={ref}
-      className="pointer-events-none fixed top-0 left-0 z-0 hidden h-[640px] w-[640px] rounded-full opacity-60 blur-[120px] transition-transform duration-700 ease-out md:block"
+      className="pointer-events-none fixed top-0 left-0 z-0 hidden h-[640px] w-[640px] rounded-full opacity-[0.30] blur-[70px] transition-transform duration-700 ease-out md:block"
       style={{
         background:
-          "radial-gradient(circle, color-mix(in oklab, var(--primary) 18%, transparent), transparent 65%)",
+          "radial-gradient(circle, color-mix(in oklab, var(--primary) 10%, transparent), transparent 65%)",
       }}
     />
   );
