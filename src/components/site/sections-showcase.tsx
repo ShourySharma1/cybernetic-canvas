@@ -128,7 +128,7 @@ export function Speakers() {
               <article
                 className={`relative h-full overflow-hidden rounded-sm border border-border bg-surface/40 transition-[box-shadow,border-color] duration-700 ${accentRing[s.accent]}`}
               >
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                   <img
                     src={s.img}
                     alt={`${s.name}, ${s.role}`}

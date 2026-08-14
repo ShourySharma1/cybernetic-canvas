@@ -57,7 +57,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 1rem;
 
   /* Light, editorial white base */
   --background: oklch(0.995 0.001 250);
