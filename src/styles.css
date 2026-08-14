@@ -121,17 +121,17 @@
   );
   --gradient-mesh: radial-gradient(
       60% 60% at 15% 10%,
-      color-mix(in oklab, var(--primary) 8%, transparent),
+      color-mix(in oklab, var(--primary) 5%, transparent),
       transparent 70%
     ),
     radial-gradient(
       50% 50% at 85% 20%,
-      color-mix(in oklab, var(--violet) 8%, transparent),
+      color-mix(in oklab, var(--violet) 5%, transparent),
       transparent 70%
     ),
     radial-gradient(
       60% 60% at 50% 100%,
-      color-mix(in oklab, var(--accent) 7%, transparent),
+      color-mix(in oklab, var(--accent) 4%, transparent),
       transparent 70%
     );
   --ease-luxe: cubic-bezier(0.19, 1, 0.22, 1);
