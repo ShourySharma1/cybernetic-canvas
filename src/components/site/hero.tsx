@@ -81,12 +81,12 @@ export function Hero() {
             <motion.span
               key={f}
               aria-hidden
-              className="pointer-events-none absolute hidden font-mono text-[10px] tracking-widest text-primary/25 md:block"
+              className="pointer-events-none absolute hidden font-mono text-[10px] tracking-widest text-primary/18 md:block"
               style={{
                 left: `${8 + ((i * 11) % 84)}%`,
                 top: `${18 + ((i * 23) % 64)}%`,
               }}
-              animate={{ y: [0, -22, 0], opacity: [0.15, 0.5, 0.15] }}
+              animate={{ y: [0, -22, 0], opacity: [0.1, 0.35, 0.1] }}
               transition={{ duration: 9 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
             >
               {f}
