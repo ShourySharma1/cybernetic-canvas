@@ -40,9 +40,9 @@ export function Highlights() {
                 loading="lazy"
                 width={1400}
                 height={1000}
-                className="h-full w-full object-cover brightness-[0.62] transition-[transform,filter] duration-[1300ms] ease-[var(--ease-luxe)] group-hover:scale-[1.09] group-hover:brightness-100"
+                className="h-full w-full object-cover brightness-[0.75] transition-[transform,filter] duration-[1300ms] ease-[var(--ease-luxe)] group-hover:scale-[1.09] group-hover:brightness-100"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--background)_88%,transparent),transparent_60%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--background)_70%,transparent),transparent_60%)]" />
               <div className="absolute inset-x-5 bottom-5 translate-y-2 opacity-0 transition-all duration-700 ease-[var(--ease-luxe)] group-hover:translate-y-0 group-hover:opacity-100">
                 <p className="font-display text-base font-medium tracking-tight">{g.title}</p>
                 <p className="mt-1 font-mono text-[10px] tracking-[0.2em] text-primary">
@@ -62,7 +62,7 @@ export function Highlights() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-background/92 p-6 backdrop-blur-xl"
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-background/88 p-6 backdrop-blur-lg"
             onClick={() => setActive(null)}
             role="dialog"
             aria-modal="true"
@@ -77,7 +77,7 @@ export function Highlights() {
               <X className="h-4 w-4" />
             </button>
             <motion.figure
-              initial={{ scale: 0.94, opacity: 0, filter: "blur(12px)" }}
+              initial={{ scale: 0.94, opacity: 0, filter: "blur(8px)" }}
               animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
@@ -126,7 +126,7 @@ export function Speakers() {
           <Reveal key={s.name} delay={i * 0.08}>
             <Tilt className="group h-full">
               <article
-                className={`relative h-full overflow-hidden rounded-sm border border-border bg-surface/40 transition-[box-shadow,border-color] duration-700 ${accentRing[s.accent]}`}
+                className={`relative h-full overflow-hidden rounded-sm border border-border bg-surface/30 transition-[box-shadow,border-color] duration-700 ${accentRing[s.accent]}`}
               >
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                   <img
@@ -135,14 +135,14 @@ export function Speakers() {
                     loading="lazy"
                     width={900}
                     height={1200}
-                    className="h-full w-full object-cover grayscale brightness-90 transition-[transform,filter] duration-[1400ms] ease-[var(--ease-luxe)] group-hover:scale-105 group-hover:grayscale-0"
+                    className="h-full w-full object-cover grayscale brightness-95 transition-[transform,filter] duration-[1400ms] ease-[var(--ease-luxe)] group-hover:scale-105 group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--background),transparent_55%)]" />
                   <div className="absolute inset-x-4 bottom-4 flex gap-2 opacity-0 transition-all duration-700 group-hover:opacity-100">
                     {[Twitter, Linkedin, Github].map((Icon, k) => (
                       <span
                         key={k}
-                        className="grid h-8 w-8 translate-y-3 place-items-center rounded-full border border-border bg-background/70 backdrop-blur transition-all duration-500 group-hover:translate-y-0 hover:border-primary/60 hover:text-primary"
+                        className="grid h-8 w-8 translate-y-3 place-items-center rounded-full border border-border bg-background/50 backdrop-blur transition-all duration-500 group-hover:translate-y-0 hover:border-primary/60 hover:text-primary"
                         style={{ transitionDelay: `${k * 70}ms` }}
                       >
                         <Icon className="h-3.5 w-3.5" />
@@ -189,14 +189,14 @@ export function Workshops() {
                 el.style.setProperty("--mx", `${e.clientX - r.left}px`);
                 el.style.setProperty("--my", `${e.clientY - r.top}px`);
               }}
-              className="group relative h-full overflow-hidden rounded-sm border border-border bg-background/60 p-7 transition-transform duration-700 ease-[var(--ease-luxe)] hover:-translate-y-1.5"
+              className="group relative h-full overflow-hidden rounded-sm border border-border bg-background/45 p-7 transition-transform duration-700 ease-[var(--ease-luxe)] hover:-translate-y-1.5"
             >
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
                   background:
-                    "radial-gradient(340px circle at var(--mx) var(--my), color-mix(in oklab,var(--primary) 12%,transparent), transparent 70%)",
+                    "radial-gradient(340px circle at var(--mx) var(--my), color-mix(in oklab,var(--primary) 8%,transparent), transparent 70%)",
                 }}
               />
               <div className="relative flex items-start justify-between">
