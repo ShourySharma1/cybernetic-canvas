@@ -33,10 +33,10 @@ export function About() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute -inset-10 -z-10 rounded-full opacity-28 blur-[80px]"
+            className="absolute -inset-10 -z-10 rounded-full opacity-[0.20] blur-[60px]"
             style={{
               background:
-                "radial-gradient(circle, color-mix(in oklab,var(--violet) 21%,transparent), transparent 70%)",
+                "radial-gradient(circle, color-mix(in oklab,var(--violet) 15%,transparent), transparent 70%)",
             }}
           />
           <ul className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
@@ -122,9 +122,9 @@ export function Conference() {
           loading="lazy"
           width={1600}
           height={1000}
-          className="h-full w-full object-cover opacity-32"
+          className="h-full w-full object-cover opacity-[0.25]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--background)_8%,color-mix(in_oklab,var(--background)_70%,transparent)_60%,var(--background))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--background)_8%,color-mix(in_oklab,var(--background)_80%,transparent)_60%,var(--background))]" />
         <div className="absolute inset-0 noise-overlay" />
       </div>
 

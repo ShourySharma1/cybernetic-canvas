@@ -81,7 +81,7 @@ export function Hero() {
             <motion.span
               key={f}
               aria-hidden
-              className="pointer-events-none absolute hidden font-mono text-[10px] tracking-widest text-primary/18 md:block"
+              className="pointer-events-none absolute hidden font-mono text-[10px] tracking-widest text-primary/[0.18] md:block"
               style={{
                 left: `${8 + ((i * 11) % 84)}%`,
                 top: `${18 + ((i * 23) % 64)}%`,

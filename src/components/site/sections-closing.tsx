@@ -164,7 +164,7 @@ export function Faq() {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border/60">
-      <div aria-hidden className="absolute inset-0 cyber-grid opacity-22" />
+      <div aria-hidden className="absolute inset-0 cyber-grid opacity-[0.15]" />
       <div className="relative mx-auto w-full max-w-7xl px-6 py-20 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
