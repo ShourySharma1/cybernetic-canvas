@@ -214,10 +214,10 @@ export function Timeline() {
         eyebrow="Trajectory"
         title="Twelve years, one obsession."
       />
-      <div className="relative mt-20 pl-8 md:pl-0">
+      <div className="relative mt-20 pl-10 md:pl-0">
         <div
           aria-hidden
-          className="absolute top-0 bottom-0 left-0 w-px bg-border md:left-1/2"
+          className="absolute top-0 bottom-0 left-[7px] w-px bg-border md:left-1/2"
         />
         <motion.div
           aria-hidden
@@ -225,33 +225,53 @@ export function Timeline() {
           whileInView={{ scaleY: 1 }}
           viewport={{ once: true, margin: "-20%" }}
           transition={{ duration: 2.2, ease: [0.19, 1, 0.22, 1] }}
-          className="absolute top-0 bottom-0 left-0 w-px origin-top bg-[linear-gradient(to_bottom,var(--primary),var(--accent),var(--violet))] md:left-1/2"
+          className="absolute top-0 bottom-0 left-[7px] w-px origin-top bg-[linear-gradient(to_bottom,var(--primary),var(--accent),var(--violet))] md:left-1/2"
         />
-        <ul className="flex flex-col gap-16">
+        <ul className="flex flex-col gap-10 md:gap-14">
           {timeline.map((item, i) => (
             <li
               key={item.year}
-              className={`relative md:w-1/2 ${i % 2 ? "md:ml-auto md:pl-14" : "md:pr-14 md:text-right"}`}
+              className={`relative md:w-1/2 ${i % 2 ? "md:ml-auto md:pl-16" : "md:pr-16"}`}
             >
               <span
                 aria-hidden
-                className={`absolute top-2 -left-[calc(2rem+4px)] h-2 w-2 rounded-full bg-primary shadow-[0_0_18px_var(--primary)] md:left-auto ${
-                  i % 2 ? "md:-left-1" : "md:-right-1"
+                className={`absolute top-8 -left-[calc(2.5rem-3px)] grid h-4 w-4 place-items-center rounded-full border border-primary/40 bg-background md:left-auto ${
+                  i % 2 ? "md:-left-2" : "md:-right-2"
                 }`}
-              />
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_14px_var(--primary)]" />
+              </span>
               <Reveal delay={i * 0.05}>
-                <p className="font-mono text-[11px] tracking-[0.28em] text-primary">{item.year}</p>
-                <h3 className="mt-3 font-display text-2xl font-medium tracking-tight md:text-3xl">
-                  {item.title}
-                </h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground md:inline-block">
-                  {item.desc}
-                </p>
+                <article
+                  className={`group relative overflow-hidden rounded-3xl border border-border bg-card/70 p-7 backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-700 ease-[var(--ease-luxe)] hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[var(--shadow-elevate)] md:p-8 ${
+                    i % 2 ? "" : "md:text-right"
+                  }`}
+                >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 bg-[radial-gradient(120%_100%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]"
+                  />
+                  <div
+                    className={`relative flex items-center gap-3 ${i % 2 ? "" : "md:justify-end"}`}
+                  >
+                    <span className="rounded-full border border-primary/25 bg-primary/8 px-3 py-1 font-mono text-[11px] tracking-[0.24em] text-primary">
+                      {item.year}
+                    </span>
+                    <span className="h-px flex-1 bg-border" />
+                  </div>
+                  <h3 className="relative mt-4 font-display text-2xl font-medium tracking-tight md:text-[1.75rem]">
+                    {item.title}
+                  </h3>
+                  <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {item.desc}
+                  </p>
+                </article>
               </Reveal>
             </li>
           ))}
         </ul>
       </div>
+
     </Section>
   );
 }
