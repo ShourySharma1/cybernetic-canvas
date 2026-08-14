@@ -185,12 +185,12 @@
 }
 
 @utility text-glow {
-  text-shadow: 0 6px 26px color-mix(in oklab, var(--primary) 28%, transparent);
+  text-shadow: 0 6px 26px color-mix(in oklab, var(--primary) 20%, transparent);
 }
 
 @utility glass {
-  background: color-mix(in oklab, oklch(1 0 0) 72%, transparent);
-  backdrop-filter: blur(22px) saturate(150%);
+  background: color-mix(in oklab, oklch(1 0 0) 50%, transparent);
+  backdrop-filter: blur(15px) saturate(150%);
   border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
 }
 
