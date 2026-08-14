@@ -74,10 +74,10 @@ export function Testimonials() {
 export function Join() {
   return (
     <section id="join" className="relative overflow-hidden border-y border-border/60">
-      <div aria-hidden className="absolute inset-0 mesh opacity-90" />
+      <div aria-hidden className="absolute inset-0 mesh opacity-65" />
       <div
         aria-hidden
-        className="absolute inset-0 cyber-grid opacity-50 [mask-image:radial-gradient(60%_60%_at_50%_50%,black,transparent)]"
+        className="absolute inset-0 cyber-grid opacity-35 [mask-image:radial-gradient(60%_60%_at_50%_50%,black,transparent)]"
       />
       <div aria-hidden className="absolute inset-0 noise-overlay" />
       <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-32 text-center md:py-44">
@@ -164,7 +164,7 @@ export function Faq() {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border/60">
-      <div aria-hidden className="absolute inset-0 cyber-grid opacity-30" />
+      <div aria-hidden className="absolute inset-0 cyber-grid opacity-22" />
       <div className="relative mx-auto w-full max-w-7xl px-6 py-20 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
